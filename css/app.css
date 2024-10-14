@@ -1,0 +1,411 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    position: relative;
+}
+
+/*logo styling*/
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-image {
+    width: 70px; /* Adjust the size */
+    height: auto;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image fills the circle without distortion */
+}
+
+.logo-text {
+    color: #D4A017;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/*Nav styling*/
+.nav-links {
+    display: flex;
+    gap: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #D4A017;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #333;
+}
+
+/*Icons styling (phone and shopping cart)*/
+.nav-iconPhone {
+    display: flex;
+    align-items: center;
+}
+
+.nav-iconCart {
+    display: flex;
+    align-items: center;
+    margin-right: -2rem;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: #D4A017;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #333;
+}
+
+/* Burger Menu styling*/
+.burger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #333;
+    position: relative;
+    z-index: 20;
+}
+
+.burger-lines {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+}
+
+/* Burger Menu Links */
+.nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6.5rem;
+    right: 0;
+    background-color: #ffffff;
+    height: auto;
+    width: 160px;
+    align-items: center;
+    z-index: 15;
+}
+
+.nav-links.open a {
+    padding: 0.5rem 1rem;
+}
+
+/* Ensure burger menu overlay is above other elements */
+.burger-menu-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    z-index: 2;
+    display: none; /* initially hidden */
+}
+
+.burger-menu-overlay.visible {
+    display: block;
+}
+
+.nav-links.open {
+    z-index: 3; /* Makes sure it's above the background-slider */
+}
+
+/* CSS for closing the burger menu by clicking elsewhere */
+.burger-menu-close-area {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.burger-menu-close-area.active {
+    display: block;
+}
+
+/* Buttons styling */
+.order-now, .call-button {
+    background-color: #D4A017;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.order-now:hover, .call-button:hover {
+    background-color: #333;
+}
+
+/* Call button specifically */
+.call-button-area {
+    text-align: center;
+    margin: 2rem 0;
+    background-color: #fff;
+    padding: 2rem;
+}
+
+/* Content and background styling */
+.Eatery-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    z-index: 3;
+}
+
+/* Background Slider */
+.background-slider {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: #f3f3f3; /* Fallback color if images do not load */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; /* Added to ensure it does not get overlapped */
+}
+
+/* Added z-index to ensure slides are properly layered */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    z-index: 2; /* Ensures visibility above the slider */
+}
+
+/* Fixed Background Scroll Section */
+.fixed-background {
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.textbox {
+    background-color: white;
+    padding: 2rem;
+    width: 50%;
+    text-align: center;
+}
+
+.highlight {
+    color: #D4A017;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #f5f5f5;
+    padding: 3rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #ECC05C;
+}
+
+.footer-column a:hover {
+    background-color: #1A1A1A;
+}
+
+.footer-social a {
+    text-decoration: none;
+    margin: 0 0.5rem;
+    color: #D4A017;
+    font-size: 1.5rem;
+}
+
+.footer p {
+    color: #1A1A1A;
+    font-size: 12px;
+}
+
+/* Responsive Styling for different screen dimensions */
+@media screen and (max-width: 768px) {
+    .nav-links, .nav-iconPhone, .nav-iconCart {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+    
+     .Eatery-name {
+        font-size: 1.4rem; 
+    }
+    
+    .fixed-background {
+        height: 50vh;
+        padding: 2rem;
+    }
+
+    .background-slider {
+        height: 60vh; /* Reduce height for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo-text {
+        font-size: 0.9rem; /* Smaller font for smaller mobile screens */
+    }
+
+    .order-now {
+        padding: 0.8rem 1.5rem; /* Reduce padding for smaller screens */
+    }
+
+     .Eatery-name {
+    font-size: 1rem;
+
+}
+
+    .nav-links.open {
+        width: 100%; /* Make the burger menu take full width on small screens */
+    }
+
+    .fixed-background {
+        background-attachment: scroll; /* Clipping issues fix */
+        height: 50vh; /* Reduce height for phone screens */
+        padding: 1rem;
+    }
+    
+    .background-slider {
+        height: 50vh; /* Reduce height for phone screens */
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .top-nav {
+        flex-direction: row; /* Ensures elements are properly aligned horizontally */
+        padding: 1rem;
+    }
+
+    /* Adjust the navigation and icons */
+    .nav-links {
+        gap: 0.8rem; /* Reduce spacing to accommodate smaller screens */
+    }
+
+    .nav-iconPhone,
+    .nav-iconCart {
+        margin-right: 0.5rem; /* Adjust spacing to fit icons comfortably */
+    }
+     .Eatery-name {
+        font-size: 2rem; 
+    }
+
+    .background-slider {
+        height: 100vh; /* Adjusted to fit tablet screens */
+    }
+    
+    .fixed-background {
+        height: 90vh; /* Scale down to fit better in landscape mode */
+        padding: 2rem;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .background-slider {
+        height: 120vh;
+    }
+
+    .fixed-background {
+        height: 100vh;
+        padding: 2rem;
+    }
+}
+
+/*Mobile landscape media query...prayer, sorrows*/
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    
+    .logo-text {
+        font-size: 0.8rem;
+    }
+
+    
+    .nav-links {
+        gap: 0.5rem; /*navigation links taking up less space in landscape */
+    }
+
+     .nav-links.open {
+        width: 100%; /* Make the burger menu take full width on small screens */
+    }
+
+    .background-slider {
+        height: 60vh; 
+    }
+
+    .Eatery-name {
+    font-size: 1.4rem;
+
+}
+
+   
+    .fixed-background {
+        height: 50vh; 
+        padding: 1rem;
+    }
+
+    /* Reducing padding for call-button and order-now for better layout */
+    .order-now, .call-button {
+        padding: 0.6rem 1rem;
+        font-size: 1rem; /* for better readability */
+    }
+}
